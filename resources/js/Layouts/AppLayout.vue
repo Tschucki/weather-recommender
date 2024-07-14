@@ -1,16 +1,10 @@
 <script setup>
 import {ref, watch} from 'vue';
 import {Head, Link, router} from '@inertiajs/vue3';
-import ApplicationMark from '@/Components/ApplicationMark.vue';
 import Banner from '@/Components/Banner.vue';
-import Dropdown from '@/Components/Dropdown.vue';
-import DropdownLink from '@/Components/DropdownLink.vue';
-import NavLink from '@/Components/NavLink.vue';
-import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 import {Button} from '@/Components/ui/button'
 import {Input} from "@/Components/ui/input";
 import {Icon} from "@iconify/vue";
-import {MapPinIcon} from "@heroicons/vue/24/outline/index.js";
 
 defineProps({
     title: String,
@@ -44,13 +38,6 @@ watch(searchTerm, (value) => {
         searchResults.value = [];
     }
 });
-
-const askForLocation = () => {
-    navigator.geolocation.getCurrentPosition((position) => {
-        console.log(position);
-    });
-};
-
 </script>
 
 <template>
@@ -58,7 +45,7 @@ const askForLocation = () => {
         <Head :title="title"/>
 
         <Banner/>
-        <div class=" p-4 shadow-xl flex flex-col">
+        <div class=" p-4 shadow-xl flex flex-col" v-auto-animate>
             <div class="flex items-center gap-4 sm:flex-row flex-col">
                 <Link :href="route('home')">
                     <h1 class="font-semibold tracking-wide text-xl">Wetter Empfehlungen</h1>
@@ -74,27 +61,23 @@ const askForLocation = () => {
                         </span>-->
                 </div>
                 <div class="flex items-center gap-4">
-                    <Button variant="outline">
-                        <Icon
-                            icon="radix-icons:github-logo"
-                            class="h-[1.2rem] w-[1.2rem] text-foreground"
-                        />
-                    </Button>
-                    <Button variant="outline">
-                        <Icon
-                            icon="radix-icons:person"
-                            class="h-[1.2rem] w-[1.2rem] text-foreground"
-                        />
-                    </Button>
+                    <a target="_blank" href="https://github.com/Tschucki/weather-recommender">
+                        <Button variant="outline">
+                            <Icon
+                                icon="radix-icons:github-logo"
+                                class="h-[1.2rem] w-[1.2rem] text-foreground"
+                            />
+                        </Button>
+                    </a>
                 </div>
             </div>
-            <div class="mt-4" v-if="Object.keys(searchResults).length > 0">
+            <div class="mt-4" v-if="Object.keys(searchResults).length > 0" v-auto-animate>
                 <h2 class="font-semibold tracking-wide text-xl">Suchergebnisse</h2>
                 <div v-for="(result, idx) in searchResults" :key="idx" class="grid grid-cols-1 gap-4 mt-4">
                     <Link
                         @click="searchResults = []"
                         :href="route('recommendations.index', {
-                            place: result.slug,
+                            place: result.slug
                         })"
                         class="flex items-center gap-4 rounded-lg bg-white p-2 shadow-[0px_14px_34px_0px_rgba(0,0,0,0.08)] ring-1 ring-white/[0.05] transition duration-300 hover:text-black/70 hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] dark:bg-zinc-900 dark:ring-zinc-800 dark:hover:text-white/70 dark:hover:ring-zinc-700 dark:focus-visible:ring-[#FF2D20]"
                     >
@@ -118,7 +101,7 @@ const askForLocation = () => {
                 </div>
             </div>
         </div>
-        <div class="p-4">
+        <div class="p-4" v-auto-animate>
             <slot/>
         </div>
 

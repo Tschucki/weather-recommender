@@ -23,6 +23,7 @@
         "vue-tsc": "^2.0.26"
     },
     "dependencies": {
+        "@formkit/auto-animate": "^0.8.2",
         "@headlessui/vue": "^1.7.22",
         "@heroicons/vue": "^2.1.5",
         "@iconify-json/radix-icons": "^1.1.14",

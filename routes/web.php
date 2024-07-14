@@ -13,13 +13,3 @@ Route::get('places/search/{searchTerm}', [PlacesController::class, 'search'])->n
 Route::get('empfehlungen/{place}', [RecommendationController::class, 'index'])->name('recommendations.index');
 Route::get('empfehlungen/{place}/outfit', [RecommendationController::class, 'outfit'])->name('recommendations.outfit');
 Route::get('empfehlungen/{place}/places', [RecommendationController::class, 'places'])->name('recommendations.places');
-
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
-});

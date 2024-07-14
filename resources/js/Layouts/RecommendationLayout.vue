@@ -13,7 +13,7 @@ defineProps({
     <div class="max-w-7xl mx-auto">
         <h1 class="text-3xl/relaxed font-semibold pb-4">{{ place.flag }} {{ place.name }}</h1>
         <Tabs :default-value="tab">
-            <TabsList class="w-full flex">
+            <TabsList class="h-auto w-full flex justify-start overflow-x-auto xl:w-auto">
                 <Link class="flex-1" :href="route('recommendations.index', {
                     place: place.slug,
                 })">
