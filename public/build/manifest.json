@@ -1,0 +1,18 @@
+{
+  "resources/assets/fonts/Mona Sans/Mona-Sans.ttf": {
+    "file": "assets/Mona-Sans-CxWibSko.ttf",
+    "src": "resources/assets/fonts/Mona Sans/Mona-Sans.ttf"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-CvhTEB_q.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "css": [
+      "assets/app-DQ8_QKRc.css"
+    ],
+    "assets": [
+      "assets/Mona-Sans-CxWibSko.ttf"
+    ]
+  }
+}

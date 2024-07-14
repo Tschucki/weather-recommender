@@ -1,18 +1,19 @@
 const animate = require("tailwindcss-animate")
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
   safelist: ["dark"],
   prefix: "",
-  
+
   content: [
     "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
     "./storage/framework/views/*.php",
     "./resources/views/**/*.blade.php",
     "./resources/js/**/*.{ts,tsx,vue}",
   ],
-  
+
   theme: {
     container: {
       center: true,
@@ -22,6 +23,9 @@ module.exports = {
       },
     },
     extend: {
+        fontFamily: {
+            sans: ['Mona Sans', ...defaultTheme.fontFamily.sans],
+        },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
