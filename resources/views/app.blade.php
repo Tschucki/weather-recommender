@@ -8,6 +8,7 @@
         @routes
         @vite(['resources/js/app.js'])
         @inertiaHead
+        <script defer data-domain="wetter.marcelwagner.dev" src="https://plausible.marcelwagner.dev/js/script.js"></script>
     </head>
     <body class="font-sans antialiased">
         @inertia
