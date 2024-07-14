@@ -8,11 +8,12 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 class UserPlaces extends Pivot
 {
     protected $table = 'user_place';
+
     protected $guarded = [];
 
     public function place(): BelongsTo
     {
-        return $this->belongsTo(Places::class);
+        return $this->belongsTo(Place::class);
     }
 
     public function user(): BelongsTo

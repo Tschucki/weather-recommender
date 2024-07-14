@@ -13,16 +13,19 @@ return new class extends Migration
     {
         Schema::create('places', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('slug')->unique();
+            $table->string('hash', 32)->unique();
+            $table->string('name');
             $table->geography('location', subtype: 'point', srid: 4326);
-            $table->double('elevation');
+            $table->double('elevation')->nullable();
             $table->string('country_code');
-            $table->integer('population');
+            $table->integer('population')->nullable();
             $table->string('country');
+            $table->string('timezone');
+            $table->string('flag');
             $table->timestamps();
 
             $table->index('location', 'places_location_index');
-            $table->unique(['title', 'location'], 'places_title_location_unique');
         });
     }
 

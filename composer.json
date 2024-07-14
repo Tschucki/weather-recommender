@@ -12,6 +12,9 @@
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
         "matanyadaev/laravel-eloquent-spatial": "^4.2",
+        "skagarwal/google-places-api": "^2.2",
+        "spatie/laravel-sluggable": "^3.6",
+        "stidges/laravel-country-flags": "^3.0",
         "tightenco/ziggy": "^2.0"
     },
     "require-dev": {
